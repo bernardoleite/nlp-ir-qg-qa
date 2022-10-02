@@ -3,7 +3,7 @@
 import numpy as np
 from scipy import spatial
 import os
-
+from pathlib import Path
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
@@ -19,13 +19,14 @@ import stringdist
 import spacy
 nlp = spacy.load('en_core_web_lg')
 
-train = True
+word2vec_model_path = Path(os.path.dirname(__file__)+"/../../word2vec.model")
 
-if train:
+if word2vec_model_path.is_file():
+    model = Word2Vec.load(os.path.dirname(__file__)+"/../../word2vec.model")
+
+else: 
     model = Word2Vec(corpus)
     model.save(os.path.dirname(__file__)+"/../../word2vec.model")
-else:
-    model = Word2Vec.load(os.path.dirname(__file__)+"/../../word2vec.model")
 
 #print(model.most_similar('tree'))
 index2word_set = set(model.wv.index2word)

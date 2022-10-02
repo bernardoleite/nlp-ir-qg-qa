@@ -1,6 +1,7 @@
 # Other files and folders
 **/.DS_Store
 models/stanford-corenlp-full-2018-10-05
+word2vec.model
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

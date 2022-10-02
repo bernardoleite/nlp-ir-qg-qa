@@ -12,6 +12,7 @@ from utils.evaluation import word2vec
 from nltk.stem.wordnet import WordNetLemmatizer
 #import utils.rdf_liaison as liaison
 #nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 import os
 
 nlp = spacy.load('en_core_web_lg')
@@ -345,7 +346,13 @@ def main(file = ''):
 
     all_answers = []
 
-    with StanfordOpenIE() as client:
+    # https://stanfordnlp.github.io/CoreNLP/openie.html#api
+    # Default value of openie.affinity_probability_cap was 1/3.
+    properties = {
+        'openie.affinity_probability_cap': 2 / 3,
+    }
+
+    with StanfordOpenIE(properties=properties) as client:
         for q in questions:
             if '\n' in q['question']:
                 continue
@@ -406,13 +413,3 @@ def main(file = ''):
 
 if __name__== "__main__":
     main()
-
-#72,5%
-#72,38226700426373
-#72,35
-#75,85 (relation não pode ser resposta)
-#77,67 (sem as perguntas de 3 palavras)
-#75,80 (relation não pode ser resposta nem stop words)
-#75,85 (sem restrições destas)
-#76,59 (sem perguntas de dependência)
-#78,49 (sem dependencias)

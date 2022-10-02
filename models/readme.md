@@ -1,1 +1,1 @@
-Empty file.
+Please see "Installation and Configuration" from the main instructions.

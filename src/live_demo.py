@@ -14,7 +14,7 @@ class HiddenPrints:
         sys.stdout.close()
         sys.stdout = self._original_stdout
 
-file = 'live_demo'
+file = '1'
 
 with HiddenPrints():
     all_answers, score = main(file = file)

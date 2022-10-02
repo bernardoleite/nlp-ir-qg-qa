@@ -2,6 +2,7 @@
 
 import json
 import nltk
+nltk.download('wordnet')
 import os 
 
 from copy import deepcopy
@@ -626,7 +627,7 @@ def questions_from_file(file_name):
 
 
 def main():        
-    result = questions_from_file("texts/52.txt")
+    result = questions_from_file("texts/1.txt")
     #print("Question: This is the script that will gen new questions searching multiple text files.")
 
 if __name__== "__main__":
