@@ -77,4 +77,4 @@ This code is released under the **MIT** license. For details, please see the fil
 
 ## Contact
 * Bernardo Leite, bernardo.leite@fe.up.pt
-* Pedro Azevedo
+* Pedro Azevedo, pedro6@gmail.com
